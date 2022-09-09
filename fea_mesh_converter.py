@@ -24,8 +24,9 @@ class fea_mesh_converter():
                 print('mesh write failed')
 
 
-MESH_FILE_PATH = 1
+MESH_FILE_INPUT_PATH = 1
+MESH_FILE_OUTPUT_PATH = 2
 if __name__ == '__main__':
-    fmc = fea_mesh_converter(sys.argv[MESH_FILE_PATH])
+    fmc = fea_mesh_converter(sys.argv[MESH_FILE_INPUT_PATH])
     fmc.ingest_3d_file()
-    fmc.write_to_disk('helmet.msh')
+    fmc.write_to_disk(sys.argv[MESH_FILE_OUTPUT_PATH])
