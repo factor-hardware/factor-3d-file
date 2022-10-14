@@ -6,13 +6,11 @@ class mesh_creator():
     def __init__(self):
         pass
 
-    def create_mesh(self, vertices, faces, normals, colors):
-        print(faces)
+    def create_mesh(self, vertices, faces, colors):
         return meshio.Mesh(
             vertices,
             faces,
             cell_data = {
-                "n": [normals],
                 "a": [colors]
             }
         )
@@ -23,7 +21,6 @@ class mesh_converter():
         self.mesh_path = mesh_path
         self.mesh_data = None
         self.converted_mesh_data = None
-        print(self.mesh_path)
 
     def ingest_3d_file(self, printData=False):
         try:
