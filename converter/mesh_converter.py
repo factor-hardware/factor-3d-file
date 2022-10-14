@@ -1,6 +1,22 @@
 import sys
 import meshio
 
+class mesh_creator():
+
+    def __init__(self):
+        pass
+
+    def create_mesh(self, vertices, faces, normals, colors):
+        print(faces)
+        return meshio.Mesh(
+            vertices,
+            faces,
+            cell_data = {
+                "n": [normals],
+                "a": [colors]
+            }
+        )
+
 class mesh_converter():
 
     def __init__(self, mesh_path : str):
@@ -29,6 +45,9 @@ class mesh_converter():
         if self.mesh_data:
             triangles = (self.mesh_data.points, self.mesh_data.cells_dict)
         return triangles
+    
+    def set_mesh(self, mesh):
+        self.mesh_data = mesh
 
 
 MESH_FILE_INPUT_PATH = 1
